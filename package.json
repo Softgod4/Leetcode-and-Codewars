@@ -1,0 +1,15 @@
+{
+  "name": "leetcode-and-codewars",
+  "version": "1.0.0",
+  "description": "every day i do 1 easy or medium task on Codewars or Leetcode ^^",
+  "main": "1.js",
+  "scripts": {
+    "test": "node 1.js"
+  },
+  "keywords": [
+    "codewars",
+    "leetcode"
+  ],
+  "author": "Softgod4",
+  "license": "ISC"
+}
