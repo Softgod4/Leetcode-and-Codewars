@@ -5,8 +5,9 @@ def scramble(s1, s2) -> bool:
             if lists2[a] == s1[i]:
                 lists2.pop(a)
                 print(lists2)
-            else:
-                return True
+                if IndexError:
+                    return False
+    return True
 
 print(scramble('katas', 'steak')) #False
 print(scramble('scriptingjava', 'javascript')) #True
