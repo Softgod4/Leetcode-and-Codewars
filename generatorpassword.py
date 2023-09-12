@@ -3,14 +3,14 @@ import string
 
 class passwordgenerate:
     def __init__(self, specialsymbol, numbers, register):
-        self.specialsymbol = False
+        self.special_symbol = False
         self.numbers = numbers
         self.register = register
            
     def Passwordgenerate(self) -> str:
         password = []
         characters = string.ascii_letters + string.digits
-        if self.specialsymbol:
+        if self.special_symbol:
             characters += string.punctuation # добавить специальные символы
         for i in range(self.numbers):
             password.append(secrets.choice(characters)) # добавляем случайный символ N раз
@@ -22,22 +22,22 @@ class passwordgenerate:
         
     # Тут у меня вопросы для того чтобы сгенерировать правильный пароль 👇     
     def Questions(self) -> str:
-        symbolsquest = input('Нужны ли спец-символы в пароле? [y\\n]: ')
-        if symbolsquest.lower() != 'y' and symbolsquest.lower() != 'n':
+        symbols_quest = input('Нужны ли спец-символы в пароле? [y\\n]: ')
+        if symbols_quest.lower() != 'y' and symbols_quest.lower() != 'n':
             print('Неправильный ввод!')
             return self.Questions()
-        elif symbolsquest.lower() == 'n':
+        elif symbols_quest.lower() == 'n':
             print('Без спец-символов!')
-            self.specialsymbol = False
+            self.special_symbol = False
         else:
-            self.specialsymbol = True
+            self.special_symbol = True
             print('Выбраны спец-символы')
         
         try:
-            numbersquest = int(input('Выберите количество символов в пароле [1/100]: '))
-            if numbersquest >= 1 and numbersquest <= 100:
-                print(f'В пароле будет {numbersquest}')
-                self.numbers = numbersquest
+            numbers_quest = int(input('Выберите количество символов в пароле [1/100]: '))
+            if numbers_quest >= 1 and numbers_quest <= 100:
+                print(f'В пароле будет {numbers_quest}')
+                self.numbers = numbers_quest
             else:
                 print('Введите числа от 1 до 100!')
                 return self.Questions()
@@ -45,18 +45,16 @@ class passwordgenerate:
             print('Введите числа от 1 до 100!')
             return self.Questions()
         
-        registerquest = input('Нужен ли верхний регистр? [y\\n]: ')
-        if registerquest.lower() != 'y' and registerquest.lower() != 'n':
+        register_quest = input('Нужен ли верхний регистр? [y\\n]: ')
+        if register_quest.lower() != 'y' and register_quest.lower() != 'n':
             print('Неправильный ввод')
             return self.questions()
-        elif registerquest.lower() == 'n':
+        elif register_quest.lower() == 'n':
             print('Без верхнего регистра')
             self.register = False
         else:
             self.register = True
             print('Выбран верхний регистр')
-        
-        # Все проверки пройдены начинаем генерировать пароль 👇
         self.Passwordgenerate()
          
 if __name__ == '__main__':
