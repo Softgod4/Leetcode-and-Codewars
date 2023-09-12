@@ -1,13 +1,13 @@
 import secrets
 import string
 
-class passwordgenerate:
+class PasswordGenerate:
     def __init__(self, specialsymbol, numbers, register):
         self.special_symbol = False
         self.numbers = numbers
         self.register = register
            
-    def Passwordgenerate(self) -> str:
+    def password_generate(self) -> str:
         password = []
         characters = string.ascii_letters + string.digits
         if self.special_symbol:
@@ -21,7 +21,7 @@ class passwordgenerate:
             return ''.join(password).lower()
         
     # Тут у меня вопросы для того чтобы сгенерировать правильный пароль 👇     
-    def Questions(self) -> str:
+    def questions(self) -> str:
         symbols_quest = input('Нужны ли спец-символы в пароле? [y\\n]: ')
         if symbols_quest.lower() != 'y' and symbols_quest.lower() != 'n':
             print('Неправильный ввод!')
@@ -55,9 +55,9 @@ class passwordgenerate:
         else:
             self.register = True
             print('Выбран верхний регистр')
-        self.Passwordgenerate()
+        self.password_generate()
          
 if __name__ == '__main__':
-    passwd = passwordgenerate(False, 0, False)
-    passwd.Questions()
-    print(f'Ваш пароль: {passwd.Passwordgenerate()}')
+    passwd = PasswordGenerate(False, 0, False)
+    passwd.questions()
+    print(f'Ваш пароль: {passwd.password_generate()}')
