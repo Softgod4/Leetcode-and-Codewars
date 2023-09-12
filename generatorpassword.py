@@ -13,11 +13,13 @@ class passwordgenerate:
         characters = string.ascii_letters + string.digits
         if self.specialsymbol:
             characters += string.punctuation # добавить специальные символы
-        if self.register:
-            characters += string.ascii_uppercase # добавить верхний регистр
         for i in range(self.numbers):
             password.append(secrets.choice(characters)) # добавляем случайный символ N раз
-        return ''.join(password)
+
+        if self.register:
+            return ''.join(password)
+        else:
+            return ''.join(password).lower()
         
     # Тут у меня вопросы для того чтобы сгенерировать правильный пароль 👇     
     def questions(self) -> str:
