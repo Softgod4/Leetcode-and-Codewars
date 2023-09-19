@@ -1,4 +1,4 @@
-def generate_hashtag(s) -> str:
+def generate_hashtag(s: str) -> str:
     if len(('').join(s.split(' '))) > 148 or s == "":
         return False
     splitted = s.split(' ')
