@@ -5,4 +5,3 @@ function isPalindrome(x) {
     }
     return false;
 }
-;
